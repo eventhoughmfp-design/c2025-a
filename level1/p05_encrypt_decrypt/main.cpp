@@ -5,7 +5,7 @@ void CaesarCipher(vector<char>& s,int deltal){
     deltal%=26;
     for(int i=0;;i++){
         if((ch=getchar())!='\n'){
-            if (ch>='a' && ch<='z') {
+            if (ch>='a'&&ch<='z') {
                 s.push_back((ch-'a'+deltal)%26+'a');
             }
             else {
@@ -15,6 +15,9 @@ void CaesarCipher(vector<char>& s,int deltal){
         else{
             break;
         }
+    }
+    for (int i=0;i<s.size();i++) {
+        cout<<s[i];
     }
 }
 void decode_CaesarCipher(vector<char>& s,int deltal) {
@@ -33,16 +36,13 @@ void decode_CaesarCipher(vector<char>& s,int deltal) {
 }
 int main() {
     int deltal;
+    vector<char> s;
     cout<<"select a number as the offset of the Caesar cipher:";
     cin>>deltal;
     if ((ch=getchar())=='\n') {
         cout<<"please write down a string of letters and press Enter to get the ciphertext:";
     }
-    vector<char> s;
     CaesarCipher(s,deltal);
-    for (int i=0;i<s.size();i++) {
-        cout<<s[i];
-    }
     cout<<endl<<"press Enter and you'll get the original text:";
     if ((ch=getchar())=='\n') {
         decode_CaesarCipher(s,deltal);
